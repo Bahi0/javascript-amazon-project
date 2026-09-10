@@ -80,9 +80,19 @@ matchingItem.quantity += 1;
       quantity: 1
   });
 }
+// below is how to calculate the basket: forEach first then let cartQ above
 
-   
-  console.log(cart);
+let cartQuantity = 0;
+
+cart.forEach((item) => {
+cartQuantity += item.quantity; //this will add up all quantities and save it to above variable
+});
+//below is the DOM
+document.querySelector('.js-cart-quantity')
+.innerHTML = cartQuantity;
+
+  /* console.log(cartQuantity);
+  console.log(cart); removed*/
 });
 });
 
