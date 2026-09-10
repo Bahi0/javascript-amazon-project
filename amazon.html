@@ -56,7 +56,7 @@
     </div>
 
     <div class="main">
-      <div class="products-grid">
+      <div class="products-grid js-products-grid"></div>
         <div class="product-container">
           <div class="product-image-container">
             <img
@@ -148,7 +148,7 @@
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">Add to Cart</button>
+          <button class="add-to-cart-button" data-product-name="57">Add to Cart</button>
         </div>
 
         <div class="product-container">
@@ -187,7 +187,6 @@
               <option value="10">10</option>
             </select>
           </div>
-
           <div class="product-spacer"></div>
 
           <div class="added-to-cart">
@@ -199,6 +198,8 @@
         </div>
       </div>
     </div>
+    <script defer src="amazon.js"></script>
+    <script src="data/cart.js"></script>
     <script src="data/products.js"></script>
     <script src="scripts/amazon.js"></script>
   </body>
