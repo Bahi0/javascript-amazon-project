@@ -1,4 +1,4 @@
-import {cart} from '../data/cart.js';
+import {cart, addToCart} from '../data/cart.js';
 import {products} from '../data/products.js';
 let productsHTML = '';
 
@@ -58,39 +58,28 @@ products.forEach((product) => {
 
 document.querySelector('.js-products-grid').
 innerHTML = productsHTML;
+// below code updating webpage rather than managing so just put it here no need to transfer to cart
+function updateCartQuantity() {
 
-document.querySelectorAll('.js-add-to-cart')
-.forEach((button) => {
-button.addEventListener('click', () => {
-  const productId = button.dataset.productId;
-
-let matchingItem;
-
-cart.forEach((item) => {
-  if (productId === item.productId) {
-matchingItem = item;
-  }
-
-});
-
-if (matchingItem){
-matchingItem.quantity += 1;
-} else {
- cart.push({
-      productId: productId,
-      quantity: 1
-  });
-}
 // below is how to calculate the basket: forEach first then let cartQ above
 
 let cartQuantity = 0;
 
-cart.forEach((item) => {
-cartQuantity += item.quantity; //this will add up all quantities and save it to above variable
+cart.forEach((cartItem) => {
+cartQuantity += cartItem.quantity; //this will add up all quantities and save it to above variable
 });
 //below is the DOM
 document.querySelector('.js-cart-quantity')
 .innerHTML = cartQuantity;
+}
+
+//below is the code that we run when we add to cart
+document.querySelectorAll('.js-add-to-cart')
+.forEach((button) => {
+button.addEventListener('click', () => {
+  const productId = button.dataset.productId;
+addToCart(productId);
+updateCartQuantity();
 
   /* console.log(cartQuantity);
   console.log(cart); removed*/
