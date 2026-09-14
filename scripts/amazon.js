@@ -83,8 +83,6 @@ button.addEventListener('click', () => {
 addToCart(productId);
 updateCartQuantity();
 
-  /* console.log(cartQuantity);
-  console.log(cart); removed*/
 });
 });
 
