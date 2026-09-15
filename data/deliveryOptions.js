@@ -11,3 +11,15 @@ priceCents: 499
   deliveryDays: 1,
   priceCents: 999
 }];
+
+export function getDeliveryOption(deliveryOptionid) {
+  let deliveryOption;
+
+deliveryOptions.forEach((option) => {
+  if (option.id === deliveryOption) {
+  deliveryOption = option;
+}
+});
+
+return deliveryOption || deliveryOptions[0]
+}
